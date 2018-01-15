@@ -1,0 +1,10 @@
+image_id=my_ami_id
+instance_type=t2.micro
+tag_name=Up-and-Out
+username=ubuntu
+key_name=my_key_name
+key_file=path_to_my_pem_file
+copy_src=(my_source_path_1 my_source_path_2 my_source_path_etc)
+copy_dst=(my_destination_path_1 my_destination_path_2 my_destination_path_etc)
+command_line="python3.6 -u path_to_my_python_file"
+email=my_email
