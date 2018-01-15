@@ -6,9 +6,9 @@ Features:
 1. Launch a new EC2 instance
 2. Sync changed files
 3. In a detached tmux session:
-    a. Run experiment
-    b. Email output
-    c. Stop instance when done/failed
+    1. Run experiment
+    2. Email output
+    3. Stop instance when done/failed
 4. Terminate instance if tmux did not start, and check whether termination was successful
 
 Usage:
