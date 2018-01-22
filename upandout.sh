@@ -6,10 +6,11 @@ setup () {(
     echo got ip $public_ip
     for ((i=0; i < ${#copy_src[@]}; i++))
     do
+        echo
         echo copying ${copy_src[$i]} to ${copy_dst[$i]}:
         rsync -e "ssh -o StrictHostKeyChecking=no -i $key_file" --stats --delete -zzurh --compress-level=9 ${copy_src[$i]} $username@$public_ip:${copy_dst[$i]}
     done
-    run_script="source .bashrc; $command_line |& tee output.txt; mail -s 'EC2 run finished' -r $instance_id@$public_ip $email < output.txt; sudo shutdown -h now; mail -s 'EC2 NOT stopped' -r $instance_id@$public_ip $email"
+    run_script="source .bashrc; $command_line |& tee output.txt; mail -s \"EC2 run finished\" -r $instance_id@$public_ip $email < output.txt; sudo shutdown -h now; mail -s \"EC2 NOT stopped\" -r $instance_id@$public_ip $email"
     ssh -o StrictHostKeyChecking=no -i $key_file $username@$public_ip "echo '$run_script'>run.sh; tmux new -d bash -i run.sh; tmux ls"
 )}
 
