@@ -16,6 +16,7 @@ Usage:
 2. Locally requires: bash, rsync
 3. Replace placeholders in config.sh.template and save as config.sh
 4. Gotcha: don't use ~ in remote paths
+5. You may want to set a filter in your email client to "never send to spam" for messages with titles "EC2 run finished", "EC2 NOT stopped"
 
 Todo:
 1. Allow using spot instances
