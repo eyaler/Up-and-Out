@@ -8,3 +8,4 @@ copy_src=(my_source_path_1 my_source_path_2 my_source_path_etc)
 copy_dst=(my_destination_path_1 my_destination_path_2 my_destination_path_etc)
 command_line="python3.6 -u path_to_my_python_file"
 email=my_email
+email_lines=30
