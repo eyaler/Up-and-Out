@@ -10,7 +10,7 @@ setup () {(
         echo copying ${copy_src[$i]} to ${copy_dst[$i]}:
         rsync -e "ssh -o StrictHostKeyChecking=no -i $key_file" --stats --delete -zzurh --compress-level=9 ${copy_src[$i]} $username@$public_ip:${copy_dst[$i]}
     done
-    run_script="source .bashrc; $command_line |& tee output.txt; cp output.txt output.$instance_id.txt tail -n $email_lines output.txt | mail -s \"EC2 run finished\" -r $instance_id@$public_ip -A output.$instance_id.txt $email; sudo shutdown -h; sleep 300; tail -n $email_lines output.txt | mail -s \"EC2 NOT stopped\" -r $instance_id@$public_ip -A output.$instance_id.txt $email"
+    run_script="source .bashrc; $command_line |& tee output.txt; cp output.txt output.$instance_id.txt; tail -n $email_lines output.txt | mail -s \"EC2 run finished\" -r $instance_id@$public_ip -A output.$instance_id.txt $email; sudo shutdown -h; sleep 300; tail -n $email_lines output.txt | mail -s \"EC2 NOT stopped\" -r $instance_id@$public_ip -A output.$instance_id.txt $email"
     ssh -o StrictHostKeyChecking=no -i $key_file $username@$public_ip "echo '$run_script'>run.sh; tmux new -d bash -i run.sh; tmux ls"
 )}
 

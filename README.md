@@ -21,4 +21,4 @@ Usage:
 Todo:
 1. Allow using spot instances
 2. Write output to remote DB
-3. Freeze local files until copied
+3. Freeze local files until copied: lock files for writing, copy them to a unique local folder/zip, unlock, upload
